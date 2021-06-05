@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 border-right">
+      <header class="modal-header"><h1>SignUp</h1></header>
+      <form #signupData="ngForm">
+      <div class="form-group"> 
+        <label>Name :</label>
+        <input type="text" name="uname" ngModel required class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Email :</label>
+        <input type="email" name="email" ngModel required class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Password :</label>
+        <input type="password" name="pass1" ngModel required class="form-control" />
+      </div>
+      <div class="form-group">
+        <button (click)="onSignUp(signupData)" type="button" class="btn btn-sm btn-danger">Submit</button>
+      </div>
+    </form>
+    </div>
+
+    <div class="col-lg-6">
+      <header class="modal-header"><h1>SignIN</h1></header>
+      <form #signinData="ngForm">
+      <div class="form-group">
+        <label>UserName</label>
+        <input type="text" name="username" ngModel required class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Password :</label>
+        <input type="password" name="passw" ngModel required class="form-control" />
+      </div>
+      <div class="form-group">
+        <button (click)="onSignIn(signinData)" type="button" class="btn btn-sm btn-secondary">Login</button>
+      </div>
+    </form>
+    </div>
+  </div> 
+</div>

@@ -9,10 +9,9 @@ let api = require('./routes/api');
 const port = process.env.PORT || 3000;
 
 let app = express();
-//let the bodyParser to use HTML form Data
- //app.use(bodyParser.urlencoded({extended:true}));
-//let the bodyParser to use JSON data
- app.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
  //enabling the cors
 //  app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -20,14 +19,8 @@ let app = express();
 //     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS,PATCH");
 //     next();
 //   });
+app.use('/', express.static(path.join(__dirname, './angular')));
 app.use('/api',api);
-
-//testing the express 
-app.get('*',(req,res)=>{
-    //res.send("<h1>Welcome to Express</h1>");
-    //SENDING A STATIC HTML FILE
-    res.sendFile(path.join(__dirname,'angular/index.html'));
-});
 
 //listening to port no
 app.listen(port,()=>{
